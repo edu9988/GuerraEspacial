@@ -9,6 +9,7 @@ public class Spaceship : MonoBehaviour
     private int health;
 
     public HealthBar hpbar;
+    public AmmoBar ammobar;
 
     private AudioSource audioSource;
 
@@ -111,6 +112,7 @@ public class Spaceship : MonoBehaviour
             burstCooldown = 0.08F;
             Debug.Log( "Ammo: " + ammo + "  Burst: " + burstOn );
         }
+        ammobar.setAmmo(ammo);
     }
 
     void OnTriggerEnter2D(Collider2D collider){

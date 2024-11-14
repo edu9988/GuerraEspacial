@@ -84,19 +84,19 @@ public class HealthBar : MonoBehaviour{
 				HUDSkin.normal.textColor = Color.yellow;
 				HUDSkin.fontStyle = FontStyle.BoldAndItalic;
 				HUDSkin.fontSize = 16;
-				GUI.Label( new Rect(posX + 200, posY, 100, 50), (int)(previousHealth) + "/" + maxHP.ToString(), HUDSkin);
+				GUI.Label( new Rect(posX + 210, posY, 100, 50), (int)(previousHealth) + "/" + maxHP.ToString(), HUDSkin);
 
 			} else if (percentage < 25){
 				HUDSkin.normal.textColor = Color.red;
 				HUDSkin.fontStyle = FontStyle.BoldAndItalic;
 				HUDSkin.fontSize = 16;
-				GUI.Label(new Rect(posX + 200, posY, 100, 50), (int)(previousHealth) + "/" + maxHP.ToString(), HUDSkin);
+				GUI.Label(new Rect(posX + 210, posY, 100, 50), (int)(previousHealth) + "/" + maxHP.ToString(), HUDSkin);
 			
 			} else {
 				HUDSkin.normal.textColor = Color.green;
 				HUDSkin.fontStyle = FontStyle.BoldAndItalic;
 				HUDSkin.fontSize = 16;
-				GUI.Label(new Rect(posX + 200, posY, 100, 50), (int)(previousHealth) + "/" + maxHP.ToString(), HUDSkin);
+				GUI.Label(new Rect(posX + 210, posY, 100, 50), (int)(previousHealth) + "/" + maxHP.ToString(), HUDSkin);
 			} 	
 		}
 	}
