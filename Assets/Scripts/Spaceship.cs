@@ -7,6 +7,7 @@ public class Spaceship : MonoBehaviour
     private float burstCooldown;
     private bool burstOn;
     private int health;
+    [SerializeField] private GameObject DefeatPanel;
 
     public HealthBar hpbar;
     public AmmoBar ammobar;
@@ -111,8 +112,8 @@ public class Spaceship : MonoBehaviour
             audioSource.Play();
             burstCooldown = 0.08F;
             Debug.Log( "Ammo: " + ammo + "  Burst: " + burstOn );
+            ammobar.setAmmo(ammo);
         }
-        ammobar.setAmmo(ammo);
     }
 
     void OnTriggerEnter2D(Collider2D collider){
@@ -128,8 +129,11 @@ public class Spaceship : MonoBehaviour
         health--;
         speed -= 0.5F;
         Debug.Log("health:"+health);
-        if( health <= 0 )
+        if( health <= 0 ) {
             Destroy(this.gameObject);
+            DefeatPanel.SetActive(true);
+            Time.timeScale = 0;
+        }
         hpbar.setHP(health);
     }
 }
