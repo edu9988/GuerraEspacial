@@ -59,7 +59,6 @@ public class AmmoBar : MonoBehaviour
     void OnGUI () {
 		int posX = Screen.width - 260;
 		float posY = Screen.height - 25;
-        Debug.Log(posY);
 		int height = 15;
 				
 		float previousAdjustValue = (previousAmmo * ammoBarWidth) / maxAmmo;

@@ -47,25 +47,21 @@ public class Spaceship : MonoBehaviour
         audioSource.Play();
             _gunController.Fire();
 	}
-	Debug.Log( "Ammo: " + ammo + "  Burst: " + burstOn );
     }
 
     public void SwitchBurstFireOn()
     {
 	burstOn = true;
-	Debug.Log( "Ammo: " + ammo + "  Burst: " + burstOn );
     }
 
     public void SwitchBurstFireOff()
     {
 	burstOn = false;
-	Debug.Log( "Ammo: " + ammo + "  Burst: " + burstOn );
     }
 
     public void Reload()
     {
 	ammo = 30;
-        Debug.Log( "Ammo: " + ammo + "  Burst: " + burstOn );
     }
 
     public float GetSpeed()
@@ -111,7 +107,6 @@ public class Spaceship : MonoBehaviour
             _gunController.Fire();
             audioSource.Play();
             burstCooldown = 0.08F;
-            Debug.Log( "Ammo: " + ammo + "  Burst: " + burstOn );
             ammobar.setAmmo(ammo);
         }
     }
@@ -128,7 +123,6 @@ public class Spaceship : MonoBehaviour
     public void Damage(){
         health--;
         speed -= 0.5F;
-        Debug.Log("health:"+health);
         if( health <= 0 ) {
             Destroy(this.gameObject);
             DefeatPanel.SetActive(true);

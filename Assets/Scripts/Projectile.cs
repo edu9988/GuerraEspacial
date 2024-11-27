@@ -19,6 +19,7 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider){
         if( collider.CompareTag("enemy") ){
+            spawner.CountKill();
             AudioSource.PlayClipAtPoint(explosionClip, transform.position);
             Enemy enemy = collider.GetComponent<Enemy>();
             Destroy(enemy.gameObject);

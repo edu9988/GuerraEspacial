@@ -58,7 +58,7 @@ public class HealthBar : MonoBehaviour{
 	void OnGUI () {
 		int posX = 10;
 		float posY = Screen.height - 25;
-        Debug.Log(posY);
+
 		int height = 15;
 				
 		float previousAdjustValue = (previousHealth * healthBarWidth) / maxHP;

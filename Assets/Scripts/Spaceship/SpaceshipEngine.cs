@@ -6,6 +6,7 @@ public class SpaceshipEngine : MonoBehaviour,
     IMovementController, IGunController
 {
     public Projectile projectilePrefab;
+    public Spawner spawner;
     public Spaceship spaceship;
 
     public void OnEnable()
@@ -55,7 +56,11 @@ public class SpaceshipEngine : MonoBehaviour,
 
     public void Fire()
     {
-        Instantiate(projectilePrefab,
+        var instance = Instantiate(projectilePrefab,
             transform.position, Quaternion.identity);
+
+        var projectile = instance.GetComponent<Projectile>();
+        projectile.spawner = spawner;
+
     }
 }
