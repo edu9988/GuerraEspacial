@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class Spaceship : MonoBehaviour
 {
@@ -7,7 +8,9 @@ public class Spaceship : MonoBehaviour
     private float burstCooldown;
     private bool burstOn;
     private int health;
+    public Spawner spawner;
     [SerializeField] private GameObject DefeatPanel;
+    [SerializeField] private TextMeshProUGUI DefeatText;
 
     public HealthBar hpbar;
     public AmmoBar ammobar;
@@ -44,6 +47,7 @@ public class Spaceship : MonoBehaviour
     {
 	if( ammo > 0 ){
 	    ammo--;
+        ammobar.setAmmo(ammo);
         audioSource.Play();
             _gunController.Fire();
 	}
@@ -62,6 +66,7 @@ public class Spaceship : MonoBehaviour
     public void Reload()
     {
 	ammo = 30;
+    ammobar.setAmmo(ammo);
     }
 
     public float GetSpeed()
@@ -114,6 +119,8 @@ public class Spaceship : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider){
         if( collider.CompareTag("enemy") ){
             Enemy enemy = collider.GetComponent<Enemy>();
+            health=0;
+            Damage();
             Destroy(enemy.gameObject);
             Destroy(this.gameObject);
         }
@@ -125,9 +132,16 @@ public class Spaceship : MonoBehaviour
         speed -= 0.5F;
         if( health <= 0 ) {
             Destroy(this.gameObject);
+            DefeatText.text = "Score: " + spawner.GetScore().ToString();
             DefeatPanel.SetActive(true);
+
             Time.timeScale = 0;
         }
+        hpbar.setHP(health);
+    }
+
+    public void Heal(){
+        health = 10;
         hpbar.setHP(health);
     }
 }

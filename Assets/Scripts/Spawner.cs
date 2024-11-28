@@ -4,17 +4,25 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public Spaceship spaceship;
     private float timer;
     private float next;
     private Bounds _cameraBounds;
     private float height;
     private float width;
     private float interval;
+    private float multiplier;
 
     private int wave;
     private int waveTotalEnemies;
     private int enemyCount;
     private int kills;
+    private int score;
+
+    int posX = 10;
+	float posY = Screen.height - 25;
+
+    public GUIStyle HUDSkin;
 
     private SpriteRenderer _enemySpriteRenderer;
 
@@ -26,47 +34,55 @@ public class Spawner : MonoBehaviour
         width = height * Camera.main.aspect;
         timer = 0F;
         interval = 5F;
-        next = 2F;
-	_enemySpriteRenderer = enemyPrefab.GetComponent<SpriteRenderer>();
+        next = 4F;
+	    _enemySpriteRenderer = enemyPrefab.GetComponent<SpriteRenderer>();
         wave = 1;
-        waveTotalEnemies = 2;
+        waveTotalEnemies = 10;
         enemyCount = 0;
         kills = 0;
+        multiplier = 1F;
+
+
+        HUDSkin.normal.textColor = Color.yellow;
+        HUDSkin.fontStyle = FontStyle.BoldAndItalic;
+        HUDSkin.fontSize = 16;
         
     }
 
     // Update is called once per frame
     public void Update()
     {
-        // Debug.Log("morte:" + kills);
+        
         timer += Time.deltaTime;
         if( enemyCount < waveTotalEnemies ){
             if( timer >= next ){
                 SpawnEnemy();
                 enemyCount++;
                 timer = 0F;
-                next = Random.Range(0.6F,1.2F);
+                next = multiplier*Random.Range(0.6F,1.2F);
             }
-            Debug.Log("First if");
         }
         else if( kills == waveTotalEnemies ){
 
             if( timer >= interval ){
                 NextWave();
-                Debug.Log("Yes");
             }
-
-            else
-                Debug.Log("Not");
         }
-        Debug.Log($"kills:{kills}");
+    }
+
+    void OnGUI(){
+        GUI.Label(new Rect(posX , 10, 100, 50), "Wave " + wave.ToString(), HUDSkin);
     }
 
     void NextWave(){
+        spaceship.Heal();
         wave++;
         enemyCount = 0;
         waveTotalEnemies += 10;
-        // kills = 0;
+        kills = 0;
+        multiplier -= 0.05f;
+        if( multiplier <= 0.2f )
+            multiplier = 0.2f;
     }
 
     void SpawnEnemy(){
@@ -77,8 +93,12 @@ public class Spawner : MonoBehaviour
 
     public void CountKill(){
         kills++;
-        Debug.Log("CountKIll:"+kills);
+        score+=10*wave;
         if( kills >= waveTotalEnemies )
             timer = 0F;
+    }
+
+    public int GetScore(){
+        return score;
     }
 }

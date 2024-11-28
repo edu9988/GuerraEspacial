@@ -274,9 +274,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 982080893}
     - target: {fileID: -8370306090929222982, guid: 352a9d924c4042a4988de94ab95f7b88, type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 1202105053}
+    - target: {fileID: -8370306090929222982, guid: 352a9d924c4042a4988de94ab95f7b88, type: 3}
+      propertyPath: DefeatText
+      value: 
+      objectReference: {fileID: 1275904904}
+    - target: {fileID: -8370306090929222982, guid: 352a9d924c4042a4988de94ab95f7b88, type: 3}
       propertyPath: DefeatPanel
       value: 
       objectReference: {fileID: 433145911}
+    - target: {fileID: 1523643253769847770, guid: 352a9d924c4042a4988de94ab95f7b88, type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 1202105053}
     - target: {fileID: 3525770305516420013, guid: 352a9d924c4042a4988de94ab95f7b88, type: 3}
       propertyPath: m_Name
       value: Spaceship
@@ -326,6 +338,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 352a9d924c4042a4988de94ab95f7b88, type: 3}
+--- !u!114 &91621926 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -8370306090929222982, guid: 352a9d924c4042a4988de94ab95f7b88, type: 3}
+  m_PrefabInstance: {fileID: 91621925}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbab164c025612a459d168bec0535d33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &132842981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,12 +1143,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 960, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1189,7 +1212,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 328.48, y: 120.6}
+  m_AnchoredPosition: {x: 443.9, y: 265.4}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &709639129
@@ -2029,6 +2052,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1202105053 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4454417822158765105, guid: 457afa1ee97272d4fb2fcd23811133c1, type: 3}
+  m_PrefabInstance: {fileID: 1717602438}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef698e2ba3daafc4e8dfccab0072ed18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1223715713
 GameObject:
   m_ObjectHideFlags: 0
@@ -2656,6 +2690,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 4454417822158765105, guid: 457afa1ee97272d4fb2fcd23811133c1, type: 3}
+      propertyPath: spaceship
+      value: 
+      objectReference: {fileID: 91621926}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
